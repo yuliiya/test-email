@@ -3,7 +3,14 @@ import { queryKeys } from 'src/api/constants.ts';
 
 import { convertMessageData } from '../../utils/convertMessageData.ts';
 import { apiClient } from '../client';
-import { ConvertedMessage, Message, MessagesResponse, ModifyMessageParams, modifyMessageSchema } from './schemas';
+import {
+  ConvertedMessage,
+  convertedMessageSchema,
+  Message,
+  MessagesResponse,
+  ModifyMessageParams,
+  modifyMessageSchema,
+} from './schemas';
 
 const fetchMessageDetails = async (messageId: string, format: 'metadata' | 'full' = 'metadata'): Promise<Message> => {
   const response = await apiClient.get(`/messages/${messageId}`, {
@@ -30,7 +37,7 @@ const fetchMessages = async (labelId: string): Promise<ConvertedMessage[]> => {
     messages.map(async ({ id }) => {
       const details = await fetchMessageDetails(id);
 
-      return convertMessageData(details);
+      return convertedMessageSchema.parse(convertMessageData(details));
     }),
   );
 };
@@ -47,9 +54,15 @@ export const modifyMessage = async ({ messageId, isRead }: ModifyMessageParams):
 };
 
 export const useMessages = (labelId: string) => {
-  return useQuery([queryKeys.messages, labelId], async () => {
-    return await fetchMessages(labelId);
-  });
+  return useQuery(
+    [queryKeys.messages, labelId],
+    async () => {
+      return await fetchMessages(labelId);
+    },
+    {
+      refetchOnWindowFocus: false, // Встановлюємо, щоб запит перезавантажувався при фокусуванні
+    },
+  );
 };
 
 export const useMessageDetails = (messageId: string) => {

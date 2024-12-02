@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
-import { ConvertedMessage } from 'src/api/messages/schemas.ts';
 import { useNavigate } from 'react-router';
+import { ConvertedMessage } from 'src/api/messages/schemas.ts';
 
 export const useListNavigation = (data: ConvertedMessage[]) => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export const useListNavigation = (data: ConvertedMessage[]) => {
     if (currentIndex !== -1) {
       setActiveIndex(currentIndex);
     }
-  }, [data]);
+  }, [data, findItemIndex]);
 
   return {
     findItemIndex,

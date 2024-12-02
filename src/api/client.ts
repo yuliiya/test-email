@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { getLocalStorageItem, setLocalStorageItem, LOCAL_STORAGE_KEYS, clearLocalStorage } from '../utils/localStorage';
+import { clearLocalStorage, getLocalStorageItem, LOCAL_STORAGE_KEYS, setLocalStorageItem } from '../utils/localStorage';
 
 const API_BASE_URL = import.meta.env.VITE_BASE_API_URL;
 const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;

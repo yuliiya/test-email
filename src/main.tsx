@@ -1,14 +1,13 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
 import './index.css';
-import { RouterProvider } from 'react-router';
+
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { DIContainer } from 'jet-blaze/di-react';
-
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
-import { routes } from 'src/routes/routes.tsx';
+import { RouterProvider } from 'react-router';
 import { createContainer } from 'src/composition-root/composition-root.ts';
+import { routes } from 'src/routes/routes.tsx';
 
 const queryClient = new QueryClient();
 

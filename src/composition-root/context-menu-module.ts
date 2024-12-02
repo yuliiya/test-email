@@ -1,6 +1,6 @@
 import { key, type Module } from 'jet-blaze/di';
-import { createContextMenuService, type ContextMenuService } from 'src/components/ContextMenu/context-menu-state.ts';
 import { contextMenuControllerKey } from 'src/components/ContextMenu/context-menu-controller-key.ts';
+import { type ContextMenuService, createContextMenuService } from 'src/components/ContextMenu/context-menu-state.ts';
 import { createContextMenuController } from 'src/components/ContextMenu/ContextMenu';
 
 export const contextMenuServiceKey = key<ContextMenuService>('ContextMenuService');
