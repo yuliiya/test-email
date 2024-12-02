@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# Mail Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A project built with [Vite](https://vitejs.dev/), featuring Google authentication, styled with [Tailwind CSS](https://tailwindcss.com/).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Auth**: Integration using `@react-oauth/google`.
+- **UI**: Built with `@heroicons/react` and styled with Tailwind CSS.
+- **Data Handling**: Powered by `react-query` for caching and server-state management.
+- **Type-Safe**: TypeScript and `zod` for schema validation.
+- **Routing**: Dynamic routing using `react-router`.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend**: React, Tailwind CSS
+- **Build Tool**: Vite
+- **Type Checking**: TypeScript
+- **Linting & Formatting**: ESLint, Prettier (with Tailwind plugin)
+- **Dependencies**:
+    - Google OAuth: `@react-oauth/google`
+    - State Management: `react-query`
+    - Utility: `axios`, `date-fns`
+    - Icon Set: `@heroicons/react`
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Ensure you have the following installed:
+- Node.js (v16 or later)
+- npm (v7 or later) or Yarn
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:yuliiya/test-email.git
+   cd mail-client
+
+2. Install dependencies:
+   ```bash
+   npm install
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   
+4. Open your browser at
+   ```bash
+   http://localhost:3030.

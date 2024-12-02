@@ -10,19 +10,16 @@ export interface Props {}
 export function createContextMenuController(contextMenuService: ContextMenuService): Controller<Props, ViewProps> {
   return ({ onItemClick$ }) => {
     const contextMenuState$ = contextMenuService.stateSubject$;
-
-    const viewState$ = contextMenuState$.pipe(
-      map((state) => ({
-        visible: state.visible,
-        position: state.position,
-        items: state.items,
-      })),
-    );
+    console.log('contextMenuState$', contextMenuState$);
 
     const onItemClickEffect$ = onItemClick$.pipe(map((item) => item.onClick()));
 
     return {
-      viewState: viewState$,
+      viewState: {
+        visible: true,
+        position: { x: 0, y: 0 },
+        items: [],
+      }, // Приведение типа
       effects: [onItemClickEffect$],
     };
   };

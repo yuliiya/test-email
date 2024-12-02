@@ -1,9 +1,10 @@
 import { BehaviorSubject } from 'rxjs';
+import { ContextMenuItem } from 'src/components/ContextMenu/ContextMenuView.tsx';
 
 export interface ContextMenuState {
   visible: boolean;
   position: { x: number; y: number };
-  items: { label: string; onClick: () => void }[];
+  items: ContextMenuItem[];
 }
 
 export class ContextMenuService {
