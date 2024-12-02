@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { LOCAL_STORAGE_KEYS, setLocalStorageItem } from '../../utils/localStorage.ts';
 
 const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
@@ -22,6 +23,7 @@ export const exchangeCodeForTokens = async (code: string) => {
 
     if (data.access_token) {
       setLocalStorageItem(LOCAL_STORAGE_KEYS.ACCESS_TOKEN, data.access_token);
+
       if (data.refresh_token) {
         setLocalStorageItem(LOCAL_STORAGE_KEYS.REFRESH_TOKEN, data.refresh_token);
       }

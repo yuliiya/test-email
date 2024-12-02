@@ -10,7 +10,7 @@ export interface Props {}
 export function createContextMenuController(contextMenuService: ContextMenuService): Controller<Props, ViewProps> {
   return ({ onItemClick$ }) => {
     const contextMenuState$ = contextMenuService.stateSubject$;
-    console.log('contextMenuState$', contextMenuState$);
+    console.info('contextMenuState$', contextMenuState$);
 
     const onItemClickEffect$ = onItemClick$.pipe(map((item) => item.onClick()));
 

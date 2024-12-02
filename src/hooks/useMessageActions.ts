@@ -1,11 +1,12 @@
-import { useDeleteMessage, useModifyMessageStatus } from 'src/api/messages/queries.ts';
-import { useNavigate } from 'react-router';
-import { ROUTES } from 'src/routes/constants.ts';
 import { useHotkeys } from 'react-hotkeys-hook';
-import { hotkeysConfig } from 'src/utils/hotkeysConfig.ts';
 import { useQueryClient } from 'react-query';
+import { useNavigate } from 'react-router';
+import { queryKeys } from 'src/api/constants.ts';
+import { useDeleteMessage, useModifyMessageStatus } from 'src/api/messages/queries.ts';
 import { Message } from 'src/api/messages/schemas.ts';
+import { ROUTES } from 'src/routes/constants.ts';
 import { getMessageStatus } from 'src/utils/convertMessageData.ts';
+import { hotkeysConfig } from 'src/utils/hotkeysConfig.ts';
 
 export const useMessageActions = (messageId: string | null) => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export const useMessageActions = (messageId: string | null) => {
   const { mutate: deleteMessage, isLoading: isDeleting } = useDeleteMessage();
   const { mutate: modifyMessageStatus } = useModifyMessageStatus();
 
-  const messageDetails = queryClient.getQueryData<Message>(['messageDetails', messageId]);
+  const messageDetails = queryClient.getQueryData<Message>([queryKeys.messageDetails, messageId]);
 
   const labels = messageDetails?.labelIds;
   const { isRead } = labels ? getMessageStatus(labels) : {};

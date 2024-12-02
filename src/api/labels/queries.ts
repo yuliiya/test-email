@@ -1,6 +1,8 @@
 import { useQuery } from 'react-query';
+import { queryKeys } from 'src/api/constants.ts';
+
 import { apiClient } from '../client';
-import { labelsSchema, Label } from './schemas';
+import { Label, labelsSchema } from './schemas';
 
 const fetchLabels = async (): Promise<Label[]> => {
   const response = await apiClient.get(`/labels`);
@@ -8,7 +10,7 @@ const fetchLabels = async (): Promise<Label[]> => {
 };
 
 export const useLabels = () => {
-  return useQuery(['labels'], () => fetchLabels(), {
+  return useQuery([queryKeys.labels], () => fetchLabels(), {
     onError: (error: unknown) => {
       console.error('Error fetching labels:', error);
     },
