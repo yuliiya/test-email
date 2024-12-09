@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { queryKeys } from 'src/api/constants.ts';
 
 import { apiClient } from '../client';
@@ -9,10 +9,4 @@ const fetchLabels = async (): Promise<Label[]> => {
   return labelsSchema.parse(response.data.labels);
 };
 
-export const useLabels = () => {
-  return useQuery([queryKeys.labels], () => fetchLabels(), {
-    onError: (error: unknown) => {
-      console.error('Error fetching labels:', error);
-    },
-  });
-};
+export const useLabels = () => useQuery({ queryKey: [queryKeys.labels], queryFn: fetchLabels });

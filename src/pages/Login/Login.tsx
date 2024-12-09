@@ -1,6 +1,6 @@
 import { CodeResponse, useGoogleLogin } from '@react-oauth/google';
+import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
-import { useMutation } from 'react-query';
 import { useLocation, useNavigate } from 'react-router';
 import { exchangeCodeForTokens } from 'src/api/auth/queries.ts';
 import { Button } from 'src/components/ui/Button/Button.tsx';
@@ -14,7 +14,8 @@ export const Login: FC = () => {
   const params = new URLSearchParams(location.search);
   const from = params.get('from') || ROUTES.HOME;
 
-  const { mutateAsync } = useMutation(exchangeCodeForTokens, {
+  const { mutateAsync } = useMutation({
+    mutationFn: exchangeCodeForTokens,
     onSuccess: () => {
       navigate(from);
     },

@@ -31,11 +31,11 @@ export const MessagesList: FC = () => {
             <ListSkeleton />
           ) : (
             <>
-              {Object.keys(groupedEmails).map((group) => (
+              {Array.from(groupedEmails).map(([group, emails]) => (
                 <Fragment key={group}>
                   <h5 className="text-xs mb-2 pl-3 uppercase text-gray-500">{group}</h5>
                   <div className="space-y-4">
-                    {groupedEmails[group].map(({ id, subject, date, from, content, isRead }) => (
+                    {emails.map(({ id, subject, date, from, content, isRead }) => (
                       <NavLink
                         to={{ search: `messageId=${id}` }}
                         key={id}
