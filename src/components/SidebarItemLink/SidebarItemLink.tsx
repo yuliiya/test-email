@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { NavLink, useLocation } from 'react-router';
-import { SidebarItem, SidebarItemProps } from 'src/components/SidebarItem/SidebarItem.tsx';
+import { SidebarItem, SidebarItemProps } from 'src/components/SidebarItem';
 
 interface SidebarItemLinkProps extends Omit<SidebarItemProps, 'isActive'> {
   to: string;

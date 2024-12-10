@@ -1,14 +1,14 @@
 import { FC, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import { useMessageDetails } from 'src/api/messages/queries.ts';
-import { MessageEmptyState } from 'src/components/MessageEmptyState/MessageEmptyState.tsx';
-import { MessageViewerSkeleton } from 'src/components/MessageViewerSkeleton/MessageViewerSkeleton.tsx';
+import { MessageEmptyState } from 'src/components/MessageEmptyState';
+import { MessageViewerSkeleton } from 'src/components/MessageViewerSkeleton';
 import { useMessageActions } from 'src/hooks/useMessageActions.ts';
 import { convertMessageData } from 'src/utils/convertMessageData.ts';
 import { extractEmailContent } from 'src/utils/parseMessageContent.ts';
 import { removeImagesAndPreload } from 'src/utils/removeImagesAndPreload.ts';
 
-import { MessageViewerHeader } from './components/MessageViewerHeader/MessageViewerHeader.tsx';
+import { MessageViewerHeader } from './components/MessageViewerHeader';
 
 export const MessageViewer: FC = () => {
   const [searchParams] = useSearchParams();

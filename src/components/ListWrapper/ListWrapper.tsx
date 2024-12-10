@@ -1,8 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
-interface ListWrapperProps {
-  children: ReactNode;
-}
+import { ListWrapperProps } from './ListWrappper.types';
 
 export const ListWrapper: FC<ListWrapperProps> = ({ children }) => {
   return <ul className="max-w-xs w-full overflow-y-auto py-6">{children}</ul>;

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Skeleton } from 'src/components/ui/Skeleton/Skeleton.tsx';
+import { Skeleton } from 'src/components/ui/Skeleton';
 
 export const MessageViewerSkeleton: FC = () => {
   return (

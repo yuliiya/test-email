@@ -5,19 +5,14 @@ import {
   BookOpenIcon,
   UserIcon,
 } from '@heroicons/react/24/outline';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { memo } from 'react';
-import { SidebarItem } from 'src/components/SidebarItem/SidebarItem.tsx';
-import { SidebarItemLink } from 'src/components/SidebarItemLink/SidebarItemLink.tsx';
-import { Button } from 'src/components/ui/Button/Button.tsx';
+import { SidebarItem } from 'src/components/SidebarItem';
+import { SidebarItemLink } from 'src/components/SidebarItemLink';
+import { Button } from 'src/components/ui/Button';
 import { ROUTES } from 'src/routes/constants.ts';
 
-interface SidebarProps {
-  children: ReactNode;
-  expanded: boolean;
-  handleExpand: () => void;
-  handleLogout: () => void;
-}
+import { SidebarProps } from './Sidebar.types';
 
 export const Sidebar: FC<SidebarProps> = memo(({ children, expanded, handleExpand, handleLogout }) => (
   <div className="relative flex-shrink-0">

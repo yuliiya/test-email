@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { ConvertedMessage } from 'src/api/messages/schemas.ts';
 
-type MessageListItemProps = Omit<ConvertedMessage, 'id' | 'fullDate' | 'isDeleted'> & { isActive: boolean };
+import { MessageListItemProps } from './MessageListItem.types';
 
 export const MessageListItem: FC<MessageListItemProps> = ({ subject, date, from, content, isRead, isActive }) => (
   <li className={`${isActive ? 'bg-gray-200' : ''} py-3 sm:py-4 transition-colors hover:bg-gray-100 rounded-md px-3`}>

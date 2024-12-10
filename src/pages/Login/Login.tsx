@@ -1,42 +1,9 @@
-import { CodeResponse, useGoogleLogin } from '@react-oauth/google';
-import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
-import { useLocation, useNavigate } from 'react-router';
-import { exchangeCodeForTokens } from 'src/api/auth/queries.ts';
-import { Button } from 'src/components/ui/Button/Button.tsx';
-import { ROUTES } from 'src/routes/constants.ts';
-
-const SCOPE = 'https://mail.google.com';
+import { Button } from 'src/components/ui/Button';
+import { useLogin } from 'src/hooks/useLogin.ts';
 
 export const Login: FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const from = params.get('from') || ROUTES.HOME;
-
-  const { mutateAsync } = useMutation({
-    mutationFn: exchangeCodeForTokens,
-    onSuccess: () => {
-      navigate(from);
-    },
-    onError: (error) => {
-      console.error(error);
-    },
-  });
-
-  const handleLoginSuccess = async (response: CodeResponse) => {
-    const { code } = response;
-    await mutateAsync(code);
-  };
-
-  const login = useGoogleLogin({
-    scope: SCOPE,
-    flow: 'auth-code',
-    onSuccess: handleLoginSuccess,
-    onError: (error) => {
-      console.error(error);
-    },
-  });
+  const { login } = useLogin();
 
   return (
     <section className="bg-gray-50 h-full">

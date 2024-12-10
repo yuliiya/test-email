@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router';
-import { AppSidebar } from 'src/features/AppSidebar/AppSidebar.tsx';
-
-import { Layout } from '../src/components/Layout/Layout.tsx';
+import { Layout } from 'src/components/Layout';
+import { AppSidebar } from 'src/features/AppSidebar';
 
 function App() {
   return (

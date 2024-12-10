@@ -1,9 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
-interface LayoutProps {
-  children: ReactNode;
-  sidebar: ReactNode;
-}
+import { LayoutProps } from './Layout.types';
 
 export const Layout: FC<LayoutProps> = ({ sidebar, children }) => (
   <div className="flex h-screen overflow-hidden">

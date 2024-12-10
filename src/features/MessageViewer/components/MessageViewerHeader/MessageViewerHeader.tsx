@@ -1,7 +1,7 @@
 import { EnvelopeOpenIcon, EyeIcon, EyeSlashIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { FC } from 'react';
 import { ConvertedMessage } from 'src/api/messages/schemas.ts';
-import { Button } from 'src/components/ui/Button/Button.tsx';
+import { Button } from 'src/components/ui/Button';
 
 export interface MessageViewerHeaderProps {
   message: ConvertedMessage;

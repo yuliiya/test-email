@@ -1,10 +1,10 @@
 import { FC, Fragment, useMemo } from 'react';
 import { NavLink, Outlet, useLocation, useSearchParams } from 'react-router';
 import { useMessages } from 'src/api/messages/queries.ts';
-import { ListSkeleton } from 'src/components/ListSkeleton/ListSkeleton.tsx';
-import { ListWrapper } from 'src/components/ListWrapper/ListWrapper.tsx';
-import { MessageEmptyState } from 'src/components/MessageEmptyState/MessageEmptyState.tsx';
-import { MessageListItem } from 'src/components/MessageListItem/MessageListItem.tsx';
+import { ListSkeleton } from 'src/components/ListSkeleton';
+import { ListWrapper } from 'src/components/ListWrapper';
+import { MessageEmptyState } from 'src/components/MessageEmptyState';
+import { MessageListItem } from 'src/components/MessageListItem';
 import { useListNavigation } from 'src/hooks/useListNavigation.ts';
 import { groupedEmailsByDate } from 'src/utils/groupEmailsByDate.ts';
 
