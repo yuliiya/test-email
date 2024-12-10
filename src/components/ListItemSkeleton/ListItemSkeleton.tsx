@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Skeleton } from 'src/components/Skeleton/Skeleton.tsx';
+import { Skeleton } from 'src/components/ui/Skeleton';
 
 export const ListItemSkeleton: FC = () => (
   <li className="py-3 sm:py-4 transition-colors hover:bg-gray-100 rounded-md px-3">

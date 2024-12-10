@@ -1,12 +1,6 @@
-import { FC, memo, ReactNode } from 'react';
+import { FC, memo } from 'react';
 
-export interface SidebarItemProps {
-  icon: ReactNode;
-  text: string;
-  expanded: boolean;
-  isActive: boolean;
-  onClick?: () => void;
-}
+import { SidebarItemProps } from './SidebarItem.types';
 
 export const SidebarItem: FC<SidebarItemProps> = memo(({ isActive, icon, text, expanded = false, onClick }) => {
   return (
@@ -25,6 +19,7 @@ export const SidebarItem: FC<SidebarItemProps> = memo(({ isActive, icon, text, e
       </span>
       {!expanded && (
         <div
+          role="tooltip"
           className={`
             z-10
             text-primary-500 invisible absolute left-full ml-6 -translate-x-3

@@ -1,5 +1,5 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { useHotkeys } from 'react-hotkeys-hook';
-import { useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router';
 import { queryKeys } from 'src/api/constants.ts';
 import { useDeleteMessage, useModifyMessageStatus } from 'src/api/messages/queries.ts';
@@ -12,7 +12,7 @@ export const useMessageActions = (messageId: string | null) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
-  const { mutate: deleteMessage, isLoading: isDeleting } = useDeleteMessage();
+  const { mutate: deleteMessage, isPending: isDeleting } = useDeleteMessage();
   const { mutate: modifyMessageStatus } = useModifyMessageStatus();
 
   const messageDetails = queryClient.getQueryData<Message>([queryKeys.messageDetails, messageId]);

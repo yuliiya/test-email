@@ -1,9 +1,7 @@
-import { ComponentPropsWithoutRef, forwardRef } from 'react';
-import { Spinner } from 'src/components/ui/Spinner/Spinner.tsx';
+import { forwardRef } from 'react';
+import { Spinner } from 'src/components/ui/Spinner';
 
-interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
-  loading?: boolean;
-}
+import { ButtonProps } from './Button.types';
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, children, loading, ...rest }, forwardedRef) => {

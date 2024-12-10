@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Skeleton } from 'src/components/Skeleton/Skeleton.tsx';
+import { Skeleton } from 'src/components/ui/Skeleton';
 
 export const MessageViewerSkeleton: FC = () => {
   return (
@@ -7,6 +7,7 @@ export const MessageViewerSkeleton: FC = () => {
       <div className="flex justify-end items-center mb-4">
         <Skeleton width="50%" className="mr-auto" />
         <div className="flex space-x-1 mr-3">
+          <Skeleton width="36px" height="36px" className="rounded" />
           <Skeleton width="36px" height="36px" className="rounded" />
           <Skeleton width="36px" height="36px" className="rounded" />
         </div>

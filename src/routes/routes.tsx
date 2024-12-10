@@ -1,9 +1,9 @@
 import { createBrowserRouter, LoaderFunctionArgs, Navigate, redirect } from 'react-router';
 import App from 'src/App.tsx';
-import { MessageViewer } from 'src/features/MessageViewer/MessageViewer.tsx';
-import { HotkeysList } from 'src/pages/HotKeysList/HotKeysList.tsx';
-import { Login } from 'src/pages/Login/Login.tsx';
-import { MessagesList } from 'src/pages/MessagesList/MessagesList.tsx';
+import { MessageViewer } from 'src/features/MessageViewer';
+import { HotkeysList } from 'src/pages/HotKeysList';
+import { Login } from 'src/pages/Login';
+import { MessagesList } from 'src/pages/MessagesList';
 import { ROUTES } from 'src/routes/constants.ts';
 import { getLocalStorageItem, LOCAL_STORAGE_KEYS } from 'src/utils/localStorage.ts';
 

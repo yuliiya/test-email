@@ -1,18 +1,22 @@
-import { EnvelopeOpenIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { EnvelopeOpenIcon, EyeIcon, EyeSlashIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { FC } from 'react';
 import { ConvertedMessage } from 'src/api/messages/schemas.ts';
-import { Button } from 'src/components/ui/Button/Button.tsx';
+import { Button } from 'src/components/ui/Button';
 
-interface MessageViewerHeaderProps {
+export interface MessageViewerHeaderProps {
   message: ConvertedMessage;
+  showImage: boolean;
   isDeleting: boolean;
   handleDelete: () => void;
+  handleToggleImgView: () => void;
   handleToggleIsReadStatus: (status: boolean) => void;
 }
 
 export const MessageViewerHeader: FC<MessageViewerHeaderProps> = ({
+  showImage,
   isDeleting,
   handleDelete,
+  handleToggleImgView,
   handleToggleIsReadStatus,
   message: { from, isDeleted, fullDate, isRead },
 }) => {
@@ -24,6 +28,9 @@ export const MessageViewerHeader: FC<MessageViewerHeaderProps> = ({
       <div className="flex space-x-1 mr-3">
         <Button onClick={() => handleToggleIsReadStatus(!isRead)} className="rounded p-1.5 hover:bg-gray-100">
           <EnvelopeOpenIcon className="h-5 w-5" />
+        </Button>
+        <Button onClick={handleToggleImgView} className="rounded p-1.5 hover:bg-gray-100">
+          {showImage ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
         </Button>
         {!isDeleted && (
           <Button

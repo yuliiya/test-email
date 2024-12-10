@@ -1,8 +1,6 @@
-import { ListItemSkeleton } from 'src/components/ListItemSkeleton/ListItemSkeleton.tsx';
+import { ListItemSkeleton } from 'src/components/ListItemSkeleton';
 
-interface ListSkeletonProps {
-  length?: number;
-}
+import { ListSkeletonProps } from './ListSkeleton.types';
 
 export const ListSkeleton = ({ length = 5 }: ListSkeletonProps) => {
   const list = Array.from({ length }, (_, i) => i);
